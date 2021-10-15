@@ -3,7 +3,18 @@ const Ticket = require('../models/ticket');
 
 module.exports = {
     create,
-    new: newTicket
+    new: newTicket,
+    delete: deleteTicket
+}
+
+function deleteTicket(req, res) {
+    Ticket.findOne({ 'tickets._id': req.params.id }, function(err, flightInfo){
+        const destSubdoc = flightInfo.tickets.id(req.params.id);
+        destSubdoc.remove();
+        flightInfo.save(function(err) {
+          res.redirect(`/flights/${flightInfo._id}`);
+        });
+      });
 }
 
 function create(req, res) {
