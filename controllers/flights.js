@@ -11,7 +11,7 @@ module.exports = {
 
 function deleteFlight(req,res) {
     Flight.findByIdAndDelete(req.params.id, function (err) {
-        res.redirect("/flights");
+        res.redirect('/flights');
       });
 }
 
