@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const favicon = require('serve-favicon');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
@@ -14,6 +15,9 @@ const destinationsRouter = require('./routes/destinations');
 const ticketsRouter = require('./routes/tickets');
 
 const app = express();
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+// app.listen(3001);
+// app.use('/favicon.ico', express.static('images/favicon.ico'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +35,7 @@ app.use('/', indexRouter);
 app.use('/flights', flightsRouter);
 app.use('/', destinationsRouter);
 app.use('/', ticketsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

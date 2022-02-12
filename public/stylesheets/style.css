@@ -1,8 +1,17 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('https://i.pinimg.com/564x/32/f0/75/32f075090b42684e106cc3ab5c823f26.jpg');
+  background-color: lightblue;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
+}
+
+#flights {
+  text-align: center;
 }
